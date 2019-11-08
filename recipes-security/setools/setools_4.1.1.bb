@@ -21,14 +21,14 @@ LIC_FILES_CHKSUM = "file://${S}/COPYING;md5=83a5eb6974c11f30785e90d0eeccf40c \
                     file://${S}/COPYING.GPL;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
                     file://${S}/COPYING.LGPL;md5=4fbd65380cdd255951079008b364516c"
 
-DEPENDS += "bison-native flex-native swig-native python libsepol"
+DEPENDS += "bison-native flex-native swig-native python3 libsepol"
 
-RDEPENDS_${PN} += "python-networkx python-enum34 python-decorator python-setuptools \
-                   python-logging python-json python-argparse libselinux-python"
+RDEPENDS_${PN} += "python3-networkx python3-decorator python3-setuptools \
+                   python3-logging python3-json libselinux-python"
 
 RPROVIDES_${PN} += "${PN}-console"
 
-inherit setuptools
+inherit setuptools3
 
 do_install_append() {
 	# Need PyQt5 support, disable gui tools
