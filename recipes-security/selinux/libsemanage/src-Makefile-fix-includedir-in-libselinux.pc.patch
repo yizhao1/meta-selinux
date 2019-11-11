@@ -1,4 +1,4 @@
-From e773c0952b06370d81e9b113f9b0b3388e323e52 Mon Sep 17 00:00:00 2001
+From ae2e64cf88aa8c484d366cee5f43465716fd77b4 Mon Sep 17 00:00:00 2001
 From: Robert Yang <liezhi.yang@windriver.com>
 Date: Thu, 18 Feb 2016 02:39:16 +0000
 Subject: [PATCH] src/Makefile: fix includedir in libselinux.pc
@@ -12,10 +12,10 @@ Signed-off-by: Yi Zhao <yi.zhao@windriver.com>
  1 file changed, 1 insertion(+)
 
 diff --git a/src/Makefile b/src/Makefile
-index dea751e..4af4568 100644
+index 1485d23..c13ab42 100644
 --- a/src/Makefile
 +++ b/src/Makefile
-@@ -93,6 +93,7 @@ $(LIBSO): $(LOBJS)
+@@ -101,6 +101,7 @@ $(LIBSO): $(LOBJS)
  
  $(LIBPC): $(LIBPC).in ../VERSION
  	sed -e 's/@VERSION@/$(VERSION)/; s:@prefix@:$(PREFIX):; s:@libdir@:$(LIBDIR):; s:@includedir@:$(INCLUDEDIR):' < $< > $@

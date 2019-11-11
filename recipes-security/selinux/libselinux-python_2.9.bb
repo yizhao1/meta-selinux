@@ -1,10 +1,13 @@
-include selinux_20180524.inc
-include ${BPN}.inc
+SELINUX_RELEASE = "20190315"
+
+SRC_URI = "https://github.com/SELinuxProject/selinux/releases/download/${SELINUX_RELEASE}/libselinux-${PV}.tar.gz"
+
+require ${BPN}.inc
 
 LIC_FILES_CHKSUM = "file://LICENSE;md5=84b4d2c6ef954a2d4081e775a270d0d0"
 
-SRC_URI[md5sum] = "56057e60192b21122c1aede8ff723ca2"
-SRC_URI[sha256sum] = "31db96ec7643ce10912b3c3f98506a08a9116dcfe151855fd349c3fda96187e1"
+SRC_URI[md5sum] = "bb449431b6ed55a0a0496dbc366d6e31"
+SRC_URI[sha256sum] = "1bccc8873e449587d9a2b2cf253de9b89a8291b9fbc7c59393ca9e5f5f4d2693"
 
 SRC_URI += "\
         file://libselinux-drop-Wno-unused-but-set-variable.patch \
@@ -12,5 +15,5 @@ SRC_URI += "\
         file://libselinux-make-SOCK_CLOEXEC-optional.patch \
         file://libselinux-define-FD_CLOEXEC-as-necessary.patch \
         file://0001-src-Makefile-fix-includedir-in-libselinux.pc.patch \
-        file://0001-libselinux-Do-not-define-gettid-if-glibc-2.30-is-use.patch \
         "
+S = "${WORKDIR}/libselinux-${PV}"

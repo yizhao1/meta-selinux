@@ -19,7 +19,7 @@ DEPENDS += "libsepol libselinux libsemanage libcap gettext-native"
 EXTRA_DEPENDS = "libcap-ng libcgroup"
 DEPENDS += "${@['', '${EXTRA_DEPENDS}']['${PN}' != '${BPN}-native']}"
 
-inherit selinux pythonnative
+inherit selinux python3native
 
 RDEPENDS_${BPN}-fixfiles += "\
 	${BPN}-setfiles \
@@ -147,7 +147,7 @@ sysroot_stage_dirs_append_class-native() {
 }
 
 do_compile_prepend() {
-	export PYTHON=python
+	export PYTHON=python3
 	export PYLIBVER='python${PYTHON_BASEVERSION}'
 	export PYTHON_CPPFLAGS="-I${STAGING_INCDIR}/${PYLIBVER}"
 	export PYTHON_LDFLAGS="${STAGING_LIBDIR}/lib${PYLIBVER}.so"
@@ -155,7 +155,7 @@ do_compile_prepend() {
 }
 
 do_install_prepend() {
-	export PYTHON=python
+	export PYTHON=python3
 	export SBINDIR="${D}/${base_sbindir}"
 }
 
